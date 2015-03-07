@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="countryApp">
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Email App</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body ng-controller="countryListCtrl">
+
+<!-- updates query property on model -->
+Search: <input type="text" ng-model="query"/>
+<table>
+    <tr>
+        <!-- for booleans telling it to be not equal to what it is currently is a toggle essentially -->
+        <th><a href="#" ng-click="sortField = 'name'; reverse = !reverse ">Country</a></th>
+        <th><a href="#" ng-click="sortField = 'population'; reverse = !reverse ">Population</a></th>
+        <th>Flag</th>
+        <th>Capital</th>
+        <th><a href="#">GDP</a></th>
+    </tr>
+    <!-- Checks both fields - look up filter properties on angular filter website-->
+    <!-- sort by decreasing (-population)-->
+    <!-- Use variable and set variable on-click-->
+    <tr ng-repeat="country in countries | filter:query | orderBy:sortField:reverse ">
+        <td>{{country.name}}</td>
+        <td>{{country.population | number}}</td>
+        <!-- use ng-src for images so they load in after the dom loads -->
+        <td><img ng-src="{{country.flagURL}}" width="100" alt=""/></td>
+        <td>{{country.capital}}</td>
+        <td>{{country.gdp | currency}}</td>
+    </tr>
+</table>
+
+
+
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-route/angular-route.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.js"></script>-->
+<script src="js/app.js"></script>
+<script>
+</script>
+
+</body>
+</html>

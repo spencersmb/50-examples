@@ -1,0 +1,114 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'angular@1.3.14' ]
+2 info using npm@2.4.1
+3 info using node@v0.10.36
+4 silly cache add args [ 'angular@1.3.14', null ]
+5 verbose cache add spec angular@1.3.14
+6 silly cache add parsed spec { raw: 'angular@1.3.14',
+6 silly cache add   scope: null,
+6 silly cache add   name: 'angular',
+6 silly cache add   rawSpec: '1.3.14',
+6 silly cache add   spec: '1.3.14',
+6 silly cache add   type: 'version' }
+7 verbose addNamed angular@1.3.14
+8 silly addNamed semver.valid 1.3.14
+9 silly addNamed semver.validRange 1.3.14
+10 silly mapToRegistry name angular
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry uri https://registry.npmjs.org/angular
+14 verbose addNameVersion registry:https://registry.npmjs.org/angular not in flight; fetching
+15 verbose request uri https://registry.npmjs.org/angular
+16 verbose request no auth needed
+17 info attempt registry request try #1 at 10:10:13
+18 verbose request id 58ad13f01267c750
+19 http request GET https://registry.npmjs.org/angular
+20 http 200 https://registry.npmjs.org/angular
+21 silly get cb [ 200,
+21 silly get   { date: 'Tue, 03 Mar 2015 15:10:14 GMT',
+21 silly get     server: 'CouchDB/1.6.1 (Erlang OTP/R14B04)',
+21 silly get     etag: '"BMTTGPLD293EIK5WJ7H5UWI1F"',
+21 silly get     'content-type': 'application/json',
+21 silly get     'cache-control': 'max-age=60',
+21 silly get     'content-length': '86567',
+21 silly get     'accept-ranges': 'bytes',
+21 silly get     via: '1.1 varnish',
+21 silly get     age: '0',
+21 silly get     'x-served-by': 'cache-jfk1032-JFK',
+21 silly get     'x-cache': 'HIT',
+21 silly get     'x-cache-hits': '1',
+21 silly get     'x-timer': 'S1425395414.155689,VS0,VE354',
+21 silly get     vary: 'Accept',
+21 silly get     'keep-alive': 'timeout=10, max=50',
+21 silly get     connection: 'Keep-Alive' } ]
+22 verbose get saving angular to /Users/spencerbigum/.npm/registry.npmjs.org/angular/.cache.json
+23 silly mapToRegistry name angular
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry uri https://registry.npmjs.org/angular
+27 verbose addRemoteTarball https://registry.npmjs.org/angular/-/angular-1.3.14.tgz not in flight; adding
+28 verbose addRemoteTarball [ 'https://registry.npmjs.org/angular/-/angular-1.3.14.tgz',
+28 verbose addRemoteTarball   'e3b451041bd13038b233d99875948a18405c534c' ]
+29 info retry fetch attempt 1 at 10:10:14
+30 info attempt registry request try #1 at 10:10:14
+31 http fetch GET https://registry.npmjs.org/angular/-/angular-1.3.14.tgz
+32 http fetch 200 https://registry.npmjs.org/angular/-/angular-1.3.14.tgz
+33 silly fetchAndShaCheck shasum e3b451041bd13038b233d99875948a18405c534c
+34 verbose addTmpTarball /var/folders/9d/xlmnk7m11xsg5qq4g81c5x0m0000gn/T/npm-91989-d7015753/registry.npmjs.org/angular/-/angular-1.3.14.tgz not in flight; adding
+35 verbose addTmpTarball already have metadata; skipping unpack for angular@1.3.14
+36 silly cache afterAdd angular@1.3.14
+37 verbose afterAdd /Users/spencerbigum/.npm/angular/1.3.14/package/package.json not in flight; writing
+38 verbose afterAdd /Users/spencerbigum/.npm/angular/1.3.14/package/package.json written
+39 silly install resolved [ { name: 'angular',
+39 silly install resolved     version: '1.3.14',
+39 silly install resolved     description: 'HTML enhanced for web apps',
+39 silly install resolved     main: 'index.js',
+39 silly install resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+39 silly install resolved     repository:
+39 silly install resolved      { type: 'git',
+39 silly install resolved        url: 'https://github.com/angular/angular.js.git' },
+39 silly install resolved     keywords: [ 'angular', 'framework', 'browser', 'client-side' ],
+39 silly install resolved     author:
+39 silly install resolved      { name: 'Angular Core Team',
+39 silly install resolved        email: 'angular-core+npm@google.com' },
+39 silly install resolved     license: 'MIT',
+39 silly install resolved     bugs: { url: 'https://github.com/angular/angular.js/issues' },
+39 silly install resolved     homepage: 'http://angularjs.org',
+39 silly install resolved     gitHead: 'bdd91e1331b48ae89adfb8444998e290b774cc6d',
+39 silly install resolved     _id: 'angular@1.3.14',
+39 silly install resolved     _shasum: 'e3b451041bd13038b233d99875948a18405c534c',
+39 silly install resolved     _from: 'angular@1.3.14',
+39 silly install resolved     _npmVersion: '2.0.2',
+39 silly install resolved     _nodeVersion: '0.10.26',
+39 silly install resolved     _npmUser: { name: 'angularcore', email: 'angular-core+npm@google.com' },
+39 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+39 silly install resolved     dist:
+39 silly install resolved      { shasum: 'e3b451041bd13038b233d99875948a18405c534c',
+39 silly install resolved        tarball: 'http://registry.npmjs.org/angular/-/angular-1.3.14.tgz' },
+39 silly install resolved     directories: {},
+39 silly install resolved     _resolved: 'https://registry.npmjs.org/angular/-/angular-1.3.14.tgz' } ]
+40 info install angular@1.3.14 into /Users/spencerbigum/Documents/github/50 examples
+41 info installOne angular@1.3.14
+42 verbose installOne of angular to /Users/spencerbigum/Documents/github/50 examples not in flight; installing
+43 warn locking Error: EACCES, open '/Users/spencerbigum/.npm/_locks/angular-e11d9a4389cb51fd.lock'
+43 warn locking  /Users/spencerbigum/.npm/_locks/angular-e11d9a4389cb51fd.lock failed { [Error: EACCES, open '/Users/spencerbigum/.npm/_locks/angular-e11d9a4389cb51fd.lock']
+43 warn locking   errno: 3,
+43 warn locking   code: 'EACCES',
+43 warn locking   path: '/Users/spencerbigum/.npm/_locks/angular-e11d9a4389cb51fd.lock' }
+44 verbose stack Error: Attempt to unlock /Users/spencerbigum/Documents/github/50 examples/node_modules/angular, which hasn't been locked
+44 verbose stack     at unlock (/usr/local/lib/node_modules/npm/lib/utils/locker.js:66:11)
+44 verbose stack     at cb (/usr/local/lib/node_modules/npm/lib/install.js:929:5)
+44 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:933:20
+44 verbose stack     at /usr/local/lib/node_modules/npm/lib/utils/locker.js:40:9
+44 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:149:38)
+44 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:177:38
+44 verbose stack     at Object.oncomplete (fs.js:108:15)
+45 verbose cwd /Users/spencerbigum/Documents/github/50 examples
+46 error Darwin 13.0.0
+47 error argv "node" "/usr/local/bin/npm" "install" "angular@1.3.14"
+48 error node v0.10.36
+49 error npm  v2.4.1
+50 error Attempt to unlock /Users/spencerbigum/Documents/github/50 examples/node_modules/angular, which hasn't been locked
+51 error If you need help, you may report this error at:
+51 error     <http://github.com/npm/npm/issues>
+52 verbose exit [ 1, true ]
