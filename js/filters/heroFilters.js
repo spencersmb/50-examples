@@ -21,7 +21,7 @@ angular.module('hero.filters', [])
                //console.log('matchText = ' + matchText);
                //console.log('item name: ' + item.name);
 
-               angular.forEach(filters.tags, function (tag) {
+               angular.forEach(filters.tags, function(tag) {
                    //if a tag is selected is true
                    if (tag.selected) {
                        //add one to keep track of selected tags
@@ -32,7 +32,7 @@ angular.module('hero.filters', [])
 
                        //loop through each item.tags and if the idexOf that tag == tag.selected label
                        //then tags matched is true for that item
-                       if (item.tags.indexOf(tag.label) > -1) {
+                       if (item.tags.indexOf(tag.label.toLowerCase()) > -1) {
                            tagsMatched += 1;
                            //console.log('matched = '+ tagsMatched);
                        }

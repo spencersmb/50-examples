@@ -11,18 +11,20 @@
 
 <h1>{{title}}</h1>
 
-<!-- updates query property on model -->
+<!-- Search -->
 Search: <input type="text" ng-model="filters.query" placeholder="search heroes"/>
 
 <br/>
 <br/>
 
+<!--SORT BY-->
 <div class="controls">
     <label>Sort by</label>
     <select ng-model="descending" ng-options="opt as opt.label for opt in options">
     </select>
 </div>
 
+<!--TAG FILTERS-->
 <div class="clear">
     <div ng-repeat="tag in filters.tags" class="checkbox">
         <label for="{{tag.label}}">{{tag.label}}</label>
@@ -30,27 +32,36 @@ Search: <input type="text" ng-model="filters.query" placeholder="search heroes"/
     </div>
 </div>
 
+<!--TEAM ARRAY-->
 <div>
-    <h3>My team</h3>
 
-    <ul>
-        <li ng-repeat="myHero in myHeroes">
-            {{myHero.name}}
-            <div ng-click="removeHero(hero)" style="cursor: pointer;">X</div>
-        </li>
-    </ul>
+    <h3>My team</h3>
+    <div>
+      <ul>
+          <li ng-repeat="myHero in myHeroes">
+              {{myHero.name}}
+              <div ng-click="removeHero(hero)" style="cursor: pointer;">X</div>
+          </li>
+      </ul>
+    </div>
+    <div ng-show="isTeamFull()">
+      <button>Save Team</button>
+    </div>
 
 </div>
 
-<ul>
-    <li ng-repeat="hero in heroes | heroesFilter: filters | orderBy:'pubDate':descending.value">
-        <h2>{{hero.name}}</h2>
-        <h5>{{hero.attack}}</h5>
-        <p>Release date: {{hero.pubDate | date}}</p>
-        <p>{{hero.description}}</p>
-        <button ng-click="addHero(hero)">Add</button>
-    </li>
-</ul>
+<!--PLAYERS-->
+<div>
+  <ul>
+      <li ng-repeat="hero in heroes | heroesFilter: filters | orderBy:'pubDate':descending.value">
+          <h2>{{hero.name}}</h2>
+          <h5>{{hero.attack}}</h5>
+          <p>Release date: {{hero.pubDate | date}}</p>
+          <p>{{hero.description}}</p>
+          <button ng-click="addHero(hero)">Add</button>
+      </li>
+  </ul>
+</div>
 
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="bower_components/angular/angular.js"></script>
