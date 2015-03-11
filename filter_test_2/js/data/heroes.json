@@ -39,9 +39,7 @@
       "description": "Mary Berners-Lee, the mother of the man who invented the world wide web, tells BBC Watchdog how she fell victim to courier fraud.",
       "pubDate": "2014-01-23",
       "tags": [
-        "tag4",
-        "tag5"
-
+        "tag4"
       ],
       "attack": "Str"
     },
@@ -51,8 +49,8 @@
       "description": "Computer makers are trying to recover lost revenue from declining PC sales, but also stay ahead of the ever-changing trends in technology",
       "pubDate": "2014-02-08",
       "tags": [
-        "tag1"
-
+        "tag1",
+        "tag4"
       ],
       "attack": "Str"
     },
