@@ -1,12 +1,15 @@
 angular.module('hero.filters', ['heroApp.models.filters'])
     .filter('heroesFilter', function(filtersModel) {
+        heroesFilter = this;
 
-       return function(items, filters, selection){
+        heroesFilter.toggleSelection = filtersModel.toggleSelection;
+
+
+       return function(items, filters){
 
            var filtered = [];
 
-           var tagObj = {};
-            var selection = selection;
+
 
            angular.forEach(items, function (item) {
 
@@ -22,73 +25,57 @@ angular.module('hero.filters', ['heroApp.models.filters'])
                var matchText = lowerCase == "" || searched.indexOf(lowerCase) > -1;
                var selectedTags = 0;
                var tagsMatched = 0;
-               //var selection =[];
+               var selection =[];
                var selectedValue=[];
                var selected = [];
 
                //console.log('matchText = ' + matchText);
                //console.log('item name: ' + item.name);
 
-               //chkValue.push(tag.label);
-               var propOf = [];
-               var chkValue = [];
              angular.forEach(filters.tags, function(tag) {
 
-
-
-
-
                  //console.log(tag.key);
-                if(tag.selected) {
-                    chkValue.push(tag.label);
+                if(tag.selected){
 
-                    //console.log(tag);
-                    var keyassign = tag.key;
-
-                    tagObj[keyassign]= tag.label;
-
-                    //console.log(chkValue);
                     selectedTags += 1;
-                    //console.log(tag.label);
-                    //console.log(item);
-                    //console.log(item);
+                    selectedValue.push(tag.label);
+                    var idx = selection.indexOf(tag.label);
 
-                    var value = _.values(item);
-                    var flatten = _.flatten(value);
+                      // is currently selected
+                      if (idx > -1) {
+                        selection.splice(idx, 1);
+                      }
+
+                      // is newly selected
+                      else {
+
+                          selection.push(tag.label);
+                      }
+                            var checkedTotal = selection.length;
+                            var string = item[tag.key];
+                            var text = string.toString();
+                            var values = _.values(item);
+                            var flatten = _.flatten(values);
+
                     //console.log(flatten);
-                    //console.log(chkValue);
-                    //console.log(flatten.indexOf(tag.label)); //works for one item
+                    console.log(selection);
+                    console.log(checkedTotal);
+                    //console.log(text);
+                    //console.log('text '+ text);
+                    //console.log('selection '+ selection);
+                    //isProp works both must be arrays
+                    var isProp =  _.intersection(flatten, selection);
 
-                    //if(flatten.indexOf(tag.label) > -1){
-                    //
-                    //}
-                    //console.log(selection);
-                    console.log(_.intersection(flatten,selection));
-                    if(_.intersection(flatten,selection).length === selection.length){
-                        tagsMatched += 1;
-                    }
-                    //var readyToGoList = _.chain(item).result('tags').contains('tag3','tag4');
+                    //console.log('intersection ' + isProp.length);
 
-
-                    //var ready = _.matcher({attack: "Int", name:"Casey"});
-                    //var readyToGoList = _.isMatch(item, {attack: "Int", name:"Casey"});
-
-
-                    //console.log(_.propertyOf(item)(tag.key));//works
-                    //var ready = _.matcher({attack: "Int", name:"Casey"});
-                    //var readyToGoList = _.isMatch(item, tagObj);
-
-                    //works for tags
-                    //var readyToGoList = _.chain(item).result('tags').contains('tag3');
-
-                    //if selected = array do the chain/intersect method
-                    //if selected = object then do the _.isMatch method
-
-                    //how do you refilter the filtered list?
-                    //var readyToGoList = _.chain(item).result('tags').contains('tag3','tag4');
-
-
-                    //console.log(readyToGoList);
+                      if(isProp.length === checkedTotal){
+                          console.log(item.name);
+                          //this means the new array has at least one or more of the values in tag and add this item to filtered
+                          filtered.push(item);
+                      } else if (isProp.length < checkedTotal){
+                          console.log('no results');
+                          return false;
+                      }
 
                 }
 

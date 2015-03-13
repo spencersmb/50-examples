@@ -1,0 +1,27 @@
+{
+  "heroes": [
+    {
+      "name": "Nuna",
+      "title": "Science behind the D-Day landings",
+      "description": "How innovations in science and engineering made the D-Day landings possible with giant troop tanks and tanks that could drive on water.",
+      "pubDate": "2014-05-01",
+      "tags": [
+        "tag1",
+        "tag4",
+        "tag2"
+      ],
+      "attack": "Agil"
+    },
+    {
+      "name": "Casey",
+      "title": "Computex: Intel shows off new tech",
+      "description": "Intel is showcasing a laptop with a 3D camera and motion control technology at the Computex show in Taiwan.",
+      "pubDate": "2014-05-12",
+      "tags": [
+        "tag2",
+        "tag3"
+      ],
+      "attack": "Int"
+    }
+  ]
+}

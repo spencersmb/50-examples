@@ -40,10 +40,10 @@ Search: <input type="text" ng-model="filters.query" placeholder="search heroes"/
 
 <!--<div>user roles {{user.roles}}</div>-->
 <!--<div>user length{{user.roles.text}}</div>-->
-<!--ng-click="toggleSelection(tag.label, tag.key)"-->
+<!--ng-checked="selection.indexOf(employee.label) > -1"-->
 <div ng-repeat="tag in filters.tags">
   <div class="action-checkbox">
-    <input id="{{tag.label}}" type="checkbox" value="{{tag.label}}" ng-click="toggleSelection(tag.label, tag.key)"  ng-model="tag.selected" />
+    <input id="{{tag.label}}" type="checkbox" value="{{tag.label}}" ng-click="heroesFilter.toggleSelection(tag.label, tag.key)" ng-model="tag.selected" />
     <label for="{{tag.label}}"></label>
     {{tag.label}}
   </div>
@@ -74,8 +74,8 @@ Search: <input type="text" ng-model="filters.query" placeholder="search heroes"/
 <!--PLAYERS-->
 <div>
   <ul>
-       <li ng-repeat="hero in heroes | heroesFilter: filters : selection |  orderBy:'pubDate':descending.value">
-    <!--<li ng-repeat="hero in test  | filter: myFilter(test,filters) |  orderBy:'pubDate':descending.value">-->
+       <!--<li ng-repeat="hero in heroes | heroesFilter: filters |  orderBy:'pubDate':descending.value">-->
+    <li ng-repeat="hero in heroes | heroesFilter: filters |  orderBy:'pubDate':descending.value">
 
     <!--<li ng-repeat="hero in heroes | filter: query |  orderBy:'pubDate':descending.value">-->
           <h2>{{hero.name}}</h2>
