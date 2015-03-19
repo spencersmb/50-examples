@@ -1,0 +1,118 @@
+<!doctype html>
+<html ng-app="heroApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Heroes Charge App</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
+</head>
+
+<body ng-controller="heroCtrl">
+
+<h1>{{title}}</h1>
+
+<!-- Search -->
+ <!--Search: <input type="text" ng-model="filters.query" placeholder="search heroes"/>-->
+Search: <input type="text" ng-model="filters.query" placeholder="search heroes"/>
+<!--Search: <input type="text" ng-model="query" placeholder="search heroes"/>-->
+
+<br/>
+<br/>
+
+<!--SORT BY-->
+<div class="controls">
+    <label>Sort by</label>
+    <select ng-model="descending" ng-options="opt as opt.label for opt in options">
+    </select>
+</div>
+
+<!--TAG FILTERS-->
+<!--<div class="clear">-->
+    <!--<div ng-repeat="tag in filters.tags" class="checkbox">-->
+        <!--<label for="{{tag.label}}">{{tag.label}}</label>-->
+        <!--<input id="{{tag.label}}" type="checkbox" ng-model="tag.selected" />-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<label ng-repeat="(key, text) in roles">-->
+  <!--<input type="checkbox" checklist-model="user.roles" checklist-value="key"> {{text}}-->
+<!--</label>-->
+
+<!--<div>user roles {{user.roles}}</div>-->
+<!--<div>user length{{user.roles.text}}</div>-->
+<!--ng-click="toggleSelection(tag.label, tag.key)"-->
+<div ng-repeat="tag in filters.tags">
+  <div class="action-checkbox">
+    <input id="{{tag.label}}" type="checkbox" value="{{tag.label}}" ng-click="toggleSelection(tag.label, tag.key)"  ng-model="tag.selected" />
+    <label for="{{tag.label}}"></label>
+    {{tag.label}}
+  </div>
+</div>
+ <span style="color:white;" class="selected-item">Selected Items:</span>
+ <div ng-repeat="label in selection" class="selected-item">
+   {{label}}
+ </div>
+
+<!-- Single button -->
+<div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        Passive Abilities <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li ng-repeat="passive in filters.passives"><a ng-click="setSelected(passive.label);" href="#">{{passive.label}}</a></li>
+        <!--<li ng-class="{active: active}" ng-repeat="passive in filters.passives"><a ng-click="setSelected(passive.label); active=!active" href="#">{{passive.label}}</a></li>-->
+    </ul>
+</div>
+
+<!--TEAM ARRAY-->
+<div>
+
+    <h3>My team</h3>
+    <div>
+      <ul>
+          <li ng-repeat="myHero in myHeroes">
+              {{myHero.name}}
+              <div ng-click="removeHero(hero)" style="cursor: pointer;">X</div>
+          </li>
+      </ul>
+    </div>
+    <div ng-show="isTeamFull()">
+      <button>Save Team</button>
+    </div>
+
+</div>
+
+<!--PLAYERS-->
+<div>
+  <ul>
+       <li ng-repeat="hero in heroes | heroesFilter: filters : selection |  orderBy:'pubDate':descending.value">
+    <!--<li ng-repeat="hero in test  | filter: myFilter(test,filters) |  orderBy:'pubDate':descending.value">-->
+
+    <!--<li ng-repeat="hero in heroes | filter: query |  orderBy:'pubDate':descending.value">-->
+          <h2>{{hero.name}}</h2>
+          <h5>{{hero.attack}}</h5>
+          <p>Release date: {{hero.pubDate | date}}</p>
+          <p>{{hero.description}}</p>
+          <button ng-click="addHero(hero)">Add</button>
+      </li>
+  </ul>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/underscore/underscore-min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.js"></script>-->
+<script src="js/directive/checklist-model.js"></script>
+<script src="js/module/heroCtrl.js"></script>
+<script src="js/common/filter_model.js"></script>
+<script src="js/services/heroServices.js"></script>
+<script src="js/filters/heroFilters.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
